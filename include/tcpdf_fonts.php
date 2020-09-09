@@ -1999,6 +1999,7 @@ class TCPDF_FONTS {
 		if ($isunicode) {
 			// requires PCRE unicode support turned on
 			$chars = TCPDF_STATIC::pregSplit('//','u', $str, -1, PREG_SPLIT_NO_EMPTY);
+			$chars = is_array($chars) ? $chars : [];
 			$carr = array_map(array('TCPDF_FONTS', 'uniord'), $chars);
 		} else {
 			$chars = str_split($str);
